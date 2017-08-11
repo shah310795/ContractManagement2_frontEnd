@@ -59,11 +59,14 @@ $(document).ready(function() {
 
         if(isBusiness){
             isFinance = false;
-            $("#biz").css("background-color", "#0c0c0c");
+            $("#biz").css("background-color", "#555");
             $("#biz").css("border-radius", "10px");
-            $("#fin").css("background-color", "#12b7cc");
+            $("#biz").css("color", "white");
+            $("#fin").css("color", "#337ab7");
+            $("#fin").css("background-color", "white");
         }else{
-            $("#biz").css("background-color", "#12b7cc");
+            $("#biz").css("color", "#337ab7");
+            $("#biz").css("background-color", "white");
         }
         
     });
@@ -74,6 +77,8 @@ $(document).ready(function() {
     $('.financeDiv').click(function() {
         if(isBusiness){
             isBusiness = false;
+            $("#biz").css("color", "#337ab7");
+            $("#biz").css("background-color", "white");
             isFinance = true;
         }else{
             isFinance = !isFinance;
@@ -81,11 +86,13 @@ $(document).ready(function() {
         }
         if(isFinance){
             isBusiness = false;
-            $("#fin").css("background-color", "#0c0c0c");
+            $("#fin").css("background-color", "#555");
             $("#fin").css("border-radius", "10px");
-            $("#biz").css("background-color", "#12b7cc");
+            $("#fin").css("color", "white");
+            $("#biz").css("color", "#337ab7");
         }else{
-            $("#fin").css("background-color", "#12b7cc");
+            $("#fin").css("color", "#337ab7");
+            $("#fin").css("background-color", "white");
         }
     });
 });

@@ -21,13 +21,17 @@ rel="stylesheet" type="text/css">
 	
 	<style>
 		#biz:hover{
-			
-			background-color:#0c0c0c;
+			color:white;
+			background-color:#555;
 			border-radius:10px;
+			box-shadow: 
 		}
 		#fin:hover{
-			background-color:#0c0c0c;
-			border-radius:10px;
+			color:white;
+			background-color:#555;
+			border-radius:10px;		
+		
+
 		}
 		body{
 			background-color:#e7e7e7;
@@ -50,178 +54,134 @@ rel="stylesheet" type="text/css">
 	</style>
 	
 </head>
-<body class = "container">
-	
-	
-		<div class = "row">
-			
-			<div class = "col-sm-offset-2 col-sm-8" style="overflow:auto; opacity:0.95; background-color:#12b7cc; box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5), 0 12px 40px 0 rgba(0, 0, 0, 0.5);">
+<body class = "container" style="margin-top: 5%;">
+		
+		<div class = "row">	
+			<div class="col-sm-offset-2 col-sm-8" style="height:10px; background-color:#337ab7;"></div>
+		</div>
+		<div class = "row">		
+			<div class = "col-sm-offset-2 col-sm-8" style="overflow:auto; opacity:0.95; background-color:white; box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5), 0 12px 40px 0 rgba(0, 0, 0, 0.5);">
 				
 				<div class = "row">
-					<div class= "col-sm-offset-2 col-sm-8" style="text-align:center;"><h1 style = "font-size:500%">Supply Chain<br>Finance</h1></div>
+					<div class= "col-sm-offset-2 col-sm-8" style="color:#555; text-align:center;"><h1 style = "font-size:500%">Supply Chain<br>Finance</h1></div>
 				</div>
 				
 				<div class = "row">
 
-					<div class = "col-sm-offset-1 col-sm-10" style="opacity: 0.5; height:0px; border:1px dashed white;"></div>
+					<div class = "col-sm-offset-1 col-sm-10" style="opacity: 0.5; height:0px; border:1px dashed #555;"></div>
 				</div>
 				<br><br>
-				<div class = "row.row-eq-height">
-
-					<div class = "col-sm-offset-1 col-sm-3" style="vertical-align:center; text-align:center;" id="biz">
-						<a href="#" style="color:white;"><i class="fa fa-briefcase fa-fw fa-3x businessDiv"></i></a>
-						<br><br>
-						<a href="#" style="color:white; font-size:200%; text-decoration:none" class="businessDiv">Business</a>
+				<div class = "row">
+					<a href="#" style="color:#337ab7; font-size:150%; text-decoration:none;text-align:center; " >
+					<div class = "col-sm-offset-2 col-sm-2" style="vertical-align:center;  text-align:center; padding-top:2%; padding-bottom: 0px;" id="biz">
+						<i class="fa fa-briefcase fa-fw fa-3x businessDiv"></i>
+						<div class = "row">	
+							<div class = "col-sm-12">					
+								<p style="text-align:center;">Business</p>
+							</div>
+						</div>
 					</div>
+					</a>
 					
 					<div class = "col-sm-offset-1 col-sm-1" style="width:0px; opacity: 0.5; border-right:1px dashed white;">
 					</div>
 					<div class = "col-sm-1"></div>
-					<div class = "col-sm-offset-1 col-sm-3" style="text-align:center;" id="fin">
-						<a href="#" style="color:white;"><i class="fa fa-bar-chart fa-fw fa-3x financeDiv"></i></a>
-						<br><br>
-						<a href="#" style="color:white; font-size:200%; text-decoration:none" class="financeDiv">Finance</a>
-					</div>
-
+					<a href="#" style="color:#337ab7; font-size:150%; text-decoration:none; ">
+						<div class = "col-sm-offset-1 col-sm-2" style="vertical-align:center;text-align:center; padding-top:2%; padding-bottom: 0px;" id="fin">
+							<i class="fa fa-bar-chart fa-fw fa-3x financeDiv"></i>
+							<div class = "row">	
+							<div class = "col-sm-12">					
+								<p style="text-align:center;">Finance</p>
+							</div>
+						</div>
+						</div>
+					</a>
 					
 				</div>
 				<br><br><br><br><br>
 			</div>
 		</div>
-	
 		<!--
-		
-		<div id="loginFormDiv" style="display:none">
-			<div style="width:50%; float:left;">
-				<div style = "float:left; padding: 10px; 
+		<div class = "row">	
+			<div class="col-sm-offset-2 col-sm-8" style="height:10px; background-color:#337ab7;"></div>
+		</div>
+		-->
 
-margin-left:20%; margin-right:20%; " >
-				<p style="text-align:center; font-
+		<div class="Row">
+			<div class="col-sm-offset-2 col-sm-8" id="loginFormDiv" style="overflow:auto; opacity:0.95; background-color:white; box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5); display:none">
+			<br><br>
+				<div class = "Row">
+					<div class = "col-sm-6" style="">
+						
+						<p style="text-align:center; font-size:200%;color: #555"> <b> Already a user ?<br>Login Here</b></p>
+							<div class = "row" style = "">
+								<div class = "col-sm-offset-1 col-sm-10" style="">
+<!-- ==========================form start =========================== -->
+									<form id = "LoginForm">
+										<div class = "row">
+											<div class="col-sm-offset-1 col-sm-10" style="background-color:white; color:#0e0e0e; border:0px; border-radius:20px;overflow:auto; box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.2)">
+												<div style="padding:2px; padding-left:10px; padding-right:20px; float:left; border-right:1px solid #cccccc;">
+													<p style="background-color:white; color:#0e0e0e; margin:0px; opacity:0.6; "><b>Login ID</b></p>
+												</div>
+												<div>
+													<input style="border:0px; float: left;width: 60%;margin-left:1%" type="text" name="LoginId" id="LoginId">
+												</div>
+											</div>
+										</div>
+										<br>
+										<div class = "row">
+											<div class="col-sm-offset-1 col-sm-10" style="background-color:white; color:#0e0e0e; border:0px; border-radius:20px; overflow:auto; box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.2)">
+													<div style="padding:2px; padding-left:10px; padding-right:10px; float:left;border-right:1px solid #cccccc;">
+													<p style="margin:0px; opacity:0.6;"><b>Password</b></p>
+													</div>
+											
+													<input style="border:0px;float:left;width: 60%; margin-left: 1%" type="password" name="LoginId" id="LoginId"/>
+											</div>
+										</div>
+										
+										<br>
+										<div style="position:relative; height:30px;">
+										<input style="width:60%; border-radius:20px; display: block; margin:auto; padding:5px; padding-left:20px; padding-right:20px; background-color:#337ab7; box-shadow: 0px 1px 8px 1px rgba(0, 0, 0, 0.2); color:rgba(255,255,255,0.9); border:0px; font-size:125%" type="submit" value="Login" name="submitLogin" id="submitLogin">
+										</div>
 
-size:200%;"> <b> Already a user ?<br>Login Here</b></p>
-					<form>
-						<div style="background-
+									</form>
+									<br>
+<!-- ==========================form end =========================== -->	
 
-color:white; color:#0e0e0e; padding:3px; padding-left:5px; border:0px; 
-
-border-radius:20px;overflow:auto; box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 
-
-0.2)">
-							<div 
-
-style="padding:2px; padding-left:10px; padding-right:10px; float:left; 
-
-border-right:1px solid #cccccc;">
-								<p 
-
-style="background-color:white; color:#0e0e0e; margin:0px; opacity:0.6; 
-
-"><b>Login ID</b></p>
+									<a href="" style="color:#555; text-decoration:none; float:left;"><p><i>Forgot Password</i></p></a>
+									<a href="" style="color:#555; text-decoration:none; float:right;"><p><u><i>Need Help?</i></u></p></a>
+								</div>
 							</div>
-							<div>
-								<input 
-
-style="border:0px; float: right; width: 50%;" type="text" name="LoginId" 
-
-id="LoginId">
-							</div>
-						</div>
-						<br>
-						<div style="background-
-
-color:white; color:#0e0e0e; padding:3px; padding-left:5px; border:0px; 
-
-border-radius:20px; overflow:auto; box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 
-
-0.2)">
-							<div 
-
-style="padding:2px; padding-left:10px;padding-right:10px; float:left;border-
-
-right:1px solid #cccccc;">
-								<p 
-
-style="background-color:white; color:#0e0e0e; margin:0px; 
-
-opacity:0.6;"><b>Password</b></p>
-							</div>
-							
-								<input 
-
-style="border:0px; display:inline; margin:auto; width:60%" type="password" 
-
-name="LoginId" id="LoginId">
-							
-						</div>
-						<br>
-						<div 
-
-style="position:relative; height:30px;">
-						<input style="width:60%; 
-
-border-radius:20px; display: block; margin:auto; padding:5px; padding-
-
-left:20px; padding-right:20px; background-color:#1f1f1f; box-shadow: 0px 1px 
-
-8px 1px rgba(0, 0, 0, 0.2); color:rgba(255,255,255,0.9); border:0px; font-
-
-size:125%" type="submit" value="Login" name="submitLogin" id="submitLogin">
-						</div>
-					</form>
-					<br>
+						
+						
+					</div>
 					
-					<a href="" style="color:white; text-
-
-decoration:none; float:left;"><p><i>Forgot Password</i></p></a>
-					<a href="" style="color:white; text-
-
-decoration:none; float:right;"><p><u><i>Need Help?</i></u></p></a>
-				</div>
-				
-				
-			</div>
-			
-			<div style="width:50%;  float:right;">
-				<div style = "padding: 10px; margin-left:20%; 
-
-margin-right:20%;" >
-				<p style="text-align:center; font-size:200%"> 
-
-<b> Are you <br>new here? </b> </p>
-				<br>
-					<form>
-						<div 
-
-style="position:relative; height:30px;">
-						<input style="border-
-
-radius:20px; display: block; margin:auto; padding:5px; padding-left:20px; 
-
-padding-right:20px; background-color:#1f1f1f; box-shadow: 0px 1px 8px 1px 
-
-rgba(0, 0, 0, 0.2); color:rgba(255,255,255,0.9); border:0px; font-size:125%; 
-
-width:60%" type="submit" value="Sign Up" name="submitLogin" id="submitLogin">
+					<div class = "col-sm-6" style="">
+						<div style = "padding: 10px; margin-left:20%; margin-right:20%;" >
+						<p style="text-align:center; font-size:200%; color: #555"> <b> Are you <br>new here? </b> </p>
+						<br>
+							<form>
+								<div style="position:relative; height:30px;">
+								<input style="border-radius:20px; display: block; margin:auto; padding:5px; padding-left:20px; padding-right:20px; background-color:#337ab7; box-shadow: 0px 1px 8px 1px rgba(0, 0, 0, 0.2); color:rgba(255,255,255,0.9); border:0px; font-size:125%; width:60%" type="submit" value="Sign Up" name="submitLogin" id="submitLogin">
+								</div>
+							</form>
+							<br><br>
+							<div>
+								<a href="" style="text-align:center; color:#555; text-decoration:none;"><p><u><i>Need Help?</i></u></p></a>
+							</div>
 						</div>
-					</form>
-					<br><br>
-					<div>
-						<a href="" style="text-
+					</div>
 
-align:center; color:white; text-decoration:none;"><p><u><i>Need Help?
-
-</i></u></p></a>
+				</div>
+				<div class="Row">
+					<div class="col-sm-12" style="background-color: #337ab7;height:10px; margin:0px">
 					</div>
 				</div>
+	
 			</div>
-			<br><br>
-			<div style="margin:auto; width:0px;  opacity: 0.5; 
 
-height:150px; border:1px dashed white;"></div>
 		</div>
 		<br><br><br><br><br>
-		
-		-->
 		
 		
 		
