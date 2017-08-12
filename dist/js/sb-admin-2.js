@@ -48,7 +48,7 @@ $(function() {
 
 var isBusiness = false;
 $(document).ready(function() {
-    $('.businessDiv').click(function() {
+    $('#biz').click(function() {
         if(isFinance){
             isFinance = false;
             isBusiness = true;
@@ -74,7 +74,7 @@ $(document).ready(function() {
 
 var isFinance = false;
 $(document).ready(function() {
-    $('.financeDiv').click(function() {
+    $('#fin').click(function() {
         if(isBusiness){
             isBusiness = false;
             $("#biz").css("color", "#337ab7");
