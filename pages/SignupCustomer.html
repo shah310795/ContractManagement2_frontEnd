@@ -19,18 +19,16 @@
 	
 	<style type="text/css">
     	body {
-    		background-color:#d2d2d2;
+    		background-color:white;
 			color:white;
-			padding-bottom: 5%;
-			
+			padding-bottom: 0%;
     	}
     	#MainContainer1 {
     		opacity: 0.95;
     		background-color:white;
     		color:#555;
-    		margin-top: 5%;
+    		margin-top: 0%;
     		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5), 0 12px 40px 0 rgba(0, 0, 0, 0.5);
-
     	}
     	#TopBlueBar {
 			height:10px;
@@ -57,6 +55,39 @@
 			border:0px;
 			font-size:125%;
 		}
+		#FormContainer {
+			background-color:#8bc34a; color: white; padding-top: 3%;
+		}
+
+		.FormInputs {
+			overflow:hidden; padding:5px; background-color:white; border: 0px; border-radius: 20px; box-shadow: 0 2px 16px 1px rgba(0,0,0, 0.3);
+		}
+
+		.FormInputLabels {
+			background-color: white; color: #555; float: left; width:48% ;border-right: 1px solid gray; text-align: center;  opacity: 0.6;
+		}
+
+		.FormTextInputs {
+			border: 0px; margin-left: 1%;
+			width: 50%; float:left; color: #555
+		}
+
+		#Heading1 {
+			font-size: 300%; color:#555 ; margin-bottom: 0px; padding-bottom: 0px;
+		}
+
+		#ContentHeading {
+			background-color: #555; color: white; height: 60px; text-align: left;
+		}
+
+		#SecondMainContainer {
+			background-color:#8bc34a; color:white; padding-top: 5%;
+		}
+
+		#SubheadingContainer {
+			float:left;background-color:#8bc34a; color: white;
+		}
+		
 
     </style>
 
@@ -69,70 +100,62 @@
 			<div class="row">
 				<div class = "col-sm-offset-1 col-sm-10" id = "TopBlueBar"> 
 				</div>
-			</div>
-			<br>
-			<p style="font-size: 300%; color:#555 ; margin-bottom: 0px; padding-bottom: 0px;"><b>Supply Chain Finance</b></p>
+			</div><br>
+			<p id="Heading1"><b>Supply Chain Finance</b></p>
 			<div class = "row">
-				<div class = "col-sm-12" style="background-color: #555; color: white; height: 60px; text-align: left;">
-					
-					<h1 style="font-size: 200%;;"><b>SignUp !</b></h1>
+				<div class = "col-sm-12" id="ContentHeading">
+					<h1 style="font-size: 200%;"><b>SignUp !</b></h1>
 				</div>
 			</div>
 			<div class = "row">
-				<div class = "col-sm-12" style="background-color:#8bc34a; color: white; padding-top: 5%;">
-					
+				<div class = "col-sm-12" id = "SecondMainContainer" style="">
 					<div class = "row">
-						<div class = "col-sm-6" style="float:left;background-color:#8bc34a; color: white ">
+						<div class = "col-sm-6" id="FormContiner" style=" ">
 							<h1 style="font-size: 300%;"><b>Dear Customer, Are you new here?</b></h1>
-							<h1 style="font-size: 250%; color: #555;"><b>Welcome<br>To this new platform </b></h1>
-							<br><br>
+							<h1 style="font-size: 250%; color: #555;"><b>Welcome,<br>To this new platform!</b></h1><br><br>
 						</div>
-						<div class = "col-sm-6" style="background-color:#8bc34a; color: white; padding-top: 3%">
+						<div class = "col-sm-6" id="FormContainer" style="">
 							<form>
 								
 								<div class = "row">
-									<div class = "col-sm-offset-2 col-sm-8" style="overflow:hidden; padding:5px; background-color:white; border: 0px; border-radius: 20px; box-shadow: 0 2px 16px 1px rgba(0,0,0, 0.3);">
-										<div style="background-color: white; color: #555; float: left; width:48% ;border-right: 1px solid gray; text-align: center;  opacity: 0.6">
+									<div class = "col-sm-offset-2 col-sm-8 FormInputs">
+										<div class = "FormInputLabels">
 											<p style="margin-bottom: 0px"><b>Email ID</b> </p>
 										</div>
-										<input type="Email" name="UserEmail" style="border: 0px; margin-left: 1%;
-										width: 50%; float:left; color: #555" />
+										<input type="Email" name="UserEmail" class = "FormTextInputs"/>
 									</div>
 								</div>
 								<br>
 								<div class = "row">
-									<div class = "col-sm-offset-2 col-sm-8" style="overflow:hidden; padding:5px;background-color:white; border: 0px; border-radius: 20px; box-shadow: 0 2px 16px 1px rgba(0,0,0, 0.3);">
-										<div style="text-align: center; width:48%; background-color: white; color: #555; float: left; border-right: 1px solid #555; opacity: 0.6 ">
+									<div class = "col-sm-offset-2 col-sm-8 FormInputs" style="">
+										<div class="FormInputLabels">
 											<p style="margin-bottom: 0px"><b>Name</b></p>
 										</div>
-										<input type="input" name="name" style="border: 0px; margin-left: 1%;
-										width: 50%; float:left; color: #555" />
+										<input type="input" name="name" class="FormTextInputs"/>
 									</div>
 								</div>
 								<br>
 								<div class = "row">
-									<div class = "col-sm-offset-2 col-sm-8" style="overflow:hidden; padding:5px;background-color:white; border: 0px; border-radius: 20px; box-shadow: 0 2px 16px 1px rgba(0,0,0, 0.3);">
-										<div style="text-align: center; width:48%; background-color: white; color: #555;float: left; border-right: 1px solid #555;  opacity: 0.6">
+									<div class = "col-sm-offset-2 col-sm-8 FormInputs" style="">
+										<div class = "FormInputLabels">
 											<p style="margin-bottom: 0px"><b>Password</b> </p>
 										</div>
-										<input type="Password" name="Password" style="border: 0px; margin-left: 1%;
-										width: 50%; float:left; color: #555" />
+										<input type="Password" name="Password" class="FormTextInputs" />
 									</div>
 								</div>
 								<br>
 								<div class = "row">
-									<div class = "col-sm-offset-2 col-sm-8" style="overflow:hidden; padding:5px;background-color:white; border: 0px; border-radius: 20px; box-shadow: 0 2px 16px 1px rgba(0,0,0, 0.3);">
-										<div style="text-align: center; width:48%; background-color: white; color: #555; float: left; border-right: 1px solid #555; opacity: 0.6">
+									<div class = "col-sm-offset-2 col-sm-8 FormInputs" style="">
+										<div class= "FormInputLabels">
 											<p style="margin-bottom: 0px"><b>Retype Password</b></p>
 										</div>
-										<input type="input" name="RePassword" style="border: 0px; margin-left: 1%;
-										width: 50%; float:left; color: #555" />
+										<input type="input" name="RePassword" class="FormTextInputs" />
 									</div>
 								</div>
 								<br>
 
 								<div id ="LoginSubmitDiv">
-											<input id="submitLogin" type="submit" value="Signup" name="submitLogin"/>
+									<input id="submitLogin" type="submit" value="Signup" name="submitLogin"/>
 								</div>
 								<br>
 							</form>
@@ -140,11 +163,18 @@
 					</div>
 				</div>
 			</div>
+			<div class = "row">
+				<div class = "col-sm-12" id="ContentHeading" style="height: 120px;">
+					<h1 style="font-size: 200%;"></b></h1>
+				</div>
+			</div>
+			<!--
 			<br><br>
 			<div class="row">
 				<div class = "col-sm-offset-1 col-sm-10" id = "TopBlueBar"> 
 				</div>
 			</div>
+			-->
 		</div>
 	</div>
 	
