@@ -46,7 +46,8 @@
 			width:40%;
 			border-radius:20px;
 			display: block;
-			margin:auto; padding:5px;
+			margin:auto; 
+			padding:5px;
 			padding-left:20px;
 			padding-right:20px;
 			background-color:#555;
@@ -56,7 +57,7 @@
 			font-size:125%;
 		}
 		#FormContainer {
-			background-color:#8bc34a; color: white; padding-top: 3%;
+			color: white; padding-top: 3%;
 		}
 
 		.FormInputs {
@@ -81,14 +82,42 @@
 		}
 
 		#SecondMainContainer {
-			background-color:#8bc34a; color:white; padding-top: 5%;
+			background-color:#f0ad4e; color:white; padding-top: 5%;
 		}
 
 		#SubheadingContainer {
-			float:left;background-color:#8bc34a; color: white;
+			float:left; color: white;
 		}
 		
+		.inputfile {
 
+			opacity: 0;
+			overflow: hidden;
+			position: absolute;
+			z-index: -1;
+		}
+
+		.inputfile + label{
+			padding: 2px;
+			padding-right:10px;
+			padding-left: 10px; 
+			background-color: #555;
+		    font-size: 1.25em;
+		    font-weight: 700;
+		    color:white;
+		    display: inline-block;
+			cursor: pointer;
+			border-radius: 20px;
+			text-align: center;
+			display: block;
+			margin:auto; 
+		}
+
+		.inputfile:focus + label,
+		.inputfile + label:hover {
+			background-color: #337ab7;
+		    color:white;
+		}
     </style>
 
 
@@ -115,7 +144,7 @@
 								<div class = "row">
 									<div class = "col-sm-offset-2 col-sm-8 FormInputs">
 										<div class = "FormInputLabels">
-											<p style="margin-bottom: 0px"><b>Email ID</b> </p>
+											<p style="margin-bottom: 0px"><b>Corp ID</b> </p>
 										</div>
 										<input type="Email" name="UserEmail" class = "FormTextInputs" required/>
 									</div>
@@ -124,7 +153,7 @@
 								<div class = "row">
 									<div class = "col-sm-offset-2 col-sm-8 FormInputs">
 										<div class="FormInputLabels">
-											<p style="margin-bottom: 0px"><b>Name</b></p>
+											<p style="margin-bottom: 0px"><b>Full Name</b></p>
 										</div>
 										<input type="input" name="name" class="FormTextInputs" required/>
 									</div>
@@ -148,6 +177,42 @@
 									</div>
 								</div>
 								<br>
+								<div class = "row">
+									<div class = "col-sm-offset-2 col-sm-8 FormInputs">
+										<div class="FormInputLabels">
+											<p style="margin-bottom: 0px"><b>Address</b></p>
+										</div>
+										<input type="input" name="add" class="FormTextInputs" required/>
+									</div>
+								</div>
+								<br>
+								<div class = "row">
+									<div class = "col-sm-offset-2 col-sm-8 FormInputs">
+										<div class="FormInputLabels">
+											<p style="margin-bottom: 0px"><b>Privilage Group</b></p>
+										</div>
+										<input type="input" name="privgrp" class="FormTextInputs" required/>
+									</div>
+								</div>
+								<br>
+								<div class = "row">
+									<div class = "col-sm-offset-2 col-sm-8">
+										<input type="file" name="pic" accept="image/*" id="sign" class ="inputfile" required/><label for="sign">Upload Your Signature</label>
+									</div>
+								</div>
+								<br>
+								<div class = "row">
+									<div class = "col-sm-offset-2 col-sm-8">
+										<input type="file" name="pic" accept="image/*" id="pic" class ="inputfile" required/><label for="pic" style="text-align: center;">Upload Your Photo</label>
+									</div>
+								</div>
+								<br>
+								<div class = "row">
+									<div class = "col-sm-offset-2 col-sm-8">
+										<input type="file" name="pic" accept=".pdf,.xlsx" id="docs" class ="inputfile" required/><label for="docs">Upload Your Documents</label>
+									</div>
+								</div>
+								<br>
 								<div class="row">
 									<div class = "col-sm-offset-1 col-sm-5">
 										<input type="checkbox" name="terms" value="terms" required style="float:left;" />
@@ -165,7 +230,9 @@
 						</div>
 						<div class = "col-sm-6" id="FormContainer" style="">
 							<h1 style="font-size: 300%;"><b>Dear User, Are you new here?</b></h1>
-							<h1 style="font-size: 250%; color: #555;"><b>Welcome,<br>To this new platform!</b></h1><br><br>
+							<h1 style="font-size: 250%; color: #555;"><b>Welcome,<br>To this new platform!</b></h1>
+							<h1 style="font-size: 150%; color: #fff;"><b>Submit the form to send a Signup request to your account Admin.</b></h1>
+							<br><br>
 						</div>
 					</div>
 				</div>
