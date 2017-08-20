@@ -387,7 +387,7 @@
 
                     						<div class = "row">
                     							<div class="col-sm-1">
-                    								<input type="checkbox" name="SellerCategory" value ="{{category}}">
+                    								<input ng-change="categoryToggle(category, category_val)" ng-model="category_val" type="checkbox" name="SellerCategory" value ="{{category}}">
                     							</div> 
                     							<div class="col-sm-10" data-toggle="collapse" data-target= "{{'#' +  category + 'List'}}">
                     								{{category}}
@@ -396,7 +396,7 @@
                     						
                     						<ul  style="list-style-type: none;" class="collapse" id = "{{category + 'List'}}">
                     							<li ng-repeat="(product, product_val) in products[category]">
-                    								<input type="checkbox" name="{{category}}" value="{{product}}"> {{product}}
+                    								<input type="checkbox" name="{{category}}" value="{{product}}" ng-model="product_val"> {{product}}
                     							</li>
                     						</ul>
                     					
