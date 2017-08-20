@@ -134,7 +134,7 @@ app.controller("mySignupSwitch", ["$scope", function($scope) {
 
     $scope.finClick= function() {
         if ($scope.finvar == false) {
-            $(".collapse").collapse('show');
+            $scope.myurl ="./SignupUser.htm"
             $scope.curstylefin = "finfintrue";
             $scope.curstylebiz = "bizfintrue";
             $scope.bizvar = false;
