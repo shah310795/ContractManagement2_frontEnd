@@ -375,19 +375,19 @@
                     		<p><b><h2>Help us understand you better</h2></b></p>
                     	</div>
                     </div>
-                    <div class="row collapse" id="SellerOptions">
+                    <div class="row collapse" id="SellerOptions" ng-app='app' ng-controller="CtrlChecklist">
                     	<div class="col-sm-12" style="background-color: #337ab7; color: #f7f7f7;">
                     		<div class="row" style="background-color: #f7f7f7;padding-top:2%; padding-bottom: 2%">
                     			<div class="col-sm-offset-1 col-sm-4" style="background-color: #f7f7f7;color:#555; text-align: left;">
                     				<p><h4><b>All avialable selling items</b></h4></p>
                     				
 
-                    				<ul ng-app='app' ng-controller="CtrlChecklist" class = "MyFirstUl" style="list-style-type: none; padding: 0px; text-align: left;">
+                    				<ul class = "MyFirstUl" style="list-style-type: none; padding: 0px; text-align: left;">
                     					<li ng-repeat="(category, category_val) in categories">
 
                     						<div class = "row">
                     							<div class="col-sm-1">
-                    								<input ng-change="categoryToggle(category, category_val)" ng-model="category_val" type="checkbox" name="SellerCategory" value ="{{category}}">
+                    								<input ng-change="categoryToggle(category, category_val)" ng-model="categories[category]" type="checkbox" name="SellerCategory" value ="{{category}}">
                     							</div> 
                     							<div class="col-sm-10" data-toggle="collapse" data-target= "{{'#' +  category + 'List'}}">
                     								{{category}}
@@ -396,77 +396,18 @@
                     						
                     						<ul  style="list-style-type: none;" class="collapse" id = "{{category + 'List'}}">
                     							<li ng-repeat="(product, product_val) in products[category]">
-                    								<input type="checkbox" name="{{category}}" value="{{product}}" ng-model="product_val"> {{product}}
+                    								<input ng-change= "subcategoryToggle(category, product)" type="checkbox" name="{{category}}" value="{{product}}" ng-model="products[category][product]"> {{product}}
                     							</li>
                     						</ul>
                     					
                     					</li>
                     				
                     				</ul>
-                    				<!--
-                    				<ul class = "MyFirstUl" style="list-style-type: none; padding: 0px; text-align: left;">
-                    					
-                    					<li> 
-                    						<div class = "row">
-                    							<div class="col-sm-1">
-                    								<input type="checkbox" name="SellerCategory" value="Electronics" unchecked>
-                    							</div> 
-                    							<div class="col-sm-10" data-toggle="collapse" data-target="#ElectronicsList">
-                    								Electronincs
-                    							</div>
-                    						</div>
-                    						<ul  style="list-style-type: none;" class="collapse" id = "ElectronicsList">
-                    							<li> <input type="checkbox" name="Electronics" value="Mobile" > Mobile
-                    							</li>
-                    							<li> <input type="checkbox" name="Electronics" value="Camera"> Camera
-                    							</li>
-                    						</ul>
-                    					</li> 
-                    					
-                    					<li> 
-                    						<div class = "row">
-                    							<div class="col-sm-1">
-                    								<input type="checkbox" name="SellerCategory" value="Appliances" >
-                    							</div> 
-                    							<div class="col-sm-10" data-toggle="collapse" data-target="#AppliancesList">
-                    								Appliances
-                    							</div>
-                    						</div>
-                    						
-                    						
-                    						<ul  style="list-style-type: none;" class="collapse" id = "AppliancesList">
-                    							<li><input type="checkbox" name="Appliances" value="Refrigerator">Refrigerator
-                    							</li>
-                    							<li><input type="checkbox" name="Appliances" value="Microwave">Microwave
-                    							</li>
-                    						</ul>
-                    					</li>
-                    					
-                    					<li>
-                    						<div class = "row">
-                    							<div class="col-sm-1">
-                    								<input type="checkbox" name="SellerCategory" value="Clothing">
-                    							</div> 
-                    							<div class="col-sm-10" data-toggle="collapse" data-target="#ClothingsList">
-                    								Clothing
-                    							</div>
-                    						</div>
-                    						
-                    						
-                    						<ul  style="list-style-type: none;" class="collapse" id = "ClothingsList">
-                    							<li> <input type="checkbox" name="Clothing" value="Shirts" >Shirts
-                    							</li>
-                    							<li> <input type="checkbox" name="Clothing" value="Pants">Pants
-                    							</li>
-                    						</ul>
-                    					</li>
-                    				</ul>
-                    				-->
                     			</div>
                     			<div class="col-sm-2" style="background-color: #f7f7f7;color:#337ab7;">
                     				<div class="btn-group-vertical">
-									  <button type="button" class="btn btn-primary">Add All</button>
-									  <button type="button" class="btn btn-primary">Add</button>
+									  <button type="button" ng-click = "addAllButton()" class="btn btn-primary">Add All</button>
+									  <button type="button" ng-click = "addButton()" class="btn btn-primary">Add</button>
 									  <button type="button" class="btn btn-primary">Remove</button>
 									  <button type="button" class="btn btn-primary">Remove All</button>
 									</div>
@@ -474,6 +415,28 @@
 
                     			<div class="col-sm-4" style="background-color: #f7f7f7;color:#337ab7;text-align: left;">
                     				<p><h4><b>All items sold by you</b></h4></p>
+
+                    				<ul class = "MyFirstUl" style="list-style-type: none; padding: 0px; text-align: left;">
+                    					<li ng-repeat="categ in arrayCateg">
+
+                    						<div class = "row">
+                    							<div class="col-sm-1">
+                    								<input type="checkbox" name="SellerCategoryConf" value ="{{categ}}">
+                    							</div> 
+                    							<div class="col-sm-10" data-toggle="collapse" data-target= "{{'#' +  categ + 'ListConf'}}">
+                    								{{categ}}
+                    							</div>
+                    						</div>
+                    						
+                    						<ul  style="list-style-type: none;" class="collapse" id = "{{categ + 'ListConf'}}">
+                    							<li ng-repeat="prod in arrayCateg[categ]">
+                    								<input type="checkbox" name="{{categ}}" value="{{prod}}"> {{prod}}
+                    							</li>
+                    						</ul>
+                    					
+                    					</li>
+                    				
+                    				</ul>
                     			</div>
 
                     		</div>
@@ -520,14 +483,67 @@
 					}
 			 }
 			
-			$scope.categoryToggle = function(category,category_val){
-				console.log(category,category_val);
-			for(item in $scope.products[category])
+			$scope.arrayCateg=[];
+			$scope.arraySub=[];
+			$scope.temp=[];
+			$scope.categoryToggle = function(category){
+				for(item in $scope.products[category])
 				{
-					console.log(item);
-					$scope.products[category][item] = category_val;
+					$scope.products[category][item] = $scope.categories[category];
 				}
 			}
+			$scope.subcategoryToggle = function(category, product) {
+
+				var flag = true;
+				if ($scope.categories[category] == true) {
+					
+					//this is if no sub category selected then main category gets disselected.
+					for(item in $scope.products[category])
+					{	
+						if ($scope.products[category][item] == true) {
+							flag = false;
+							break;
+						}
+					}
+
+					if (flag == true) {
+						console.log("hey")
+						$scope.categories[category] = false;
+					}
+
+				} else if (($scope.products[category][product] == true) && ($scope.categories[category] == false)) {
+					$scope.categories[category] = true;
+				}
+			}
+
+			$scope.addButton = function() {
+				$scope.arrayCateg=[];
+				for (categ in $scope.categories) {				
+					if ($scope.categories[categ] == true) {
+						$scope.arrayCateg.push(categ);
+						$scope.arrayCateg[categ] = [];
+						for (item in $scope.products[categ]) {
+							if ($scope.products[categ][item] == true) {
+								$scope.arrayCateg[categ].push(item);
+							}
+						}
+					}
+				}
+				
+			}
+
+			$scope.addAllButton = function() {
+				$scope.arrayCateg=[];
+				for (categ in $scope.categories) {				
+					$scope.arrayCateg.push(categ);
+					$scope.arrayCateg[categ] = [];
+					for (item in $scope.products[categ]) {
+						$scope.arrayCateg[categ].push(item);
+					}
+				}
+				console.log($scope.arrayCateg);
+			}
+
 		});
     </script>>
     <!-- jQuery -->
