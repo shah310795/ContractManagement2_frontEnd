@@ -25,7 +25,7 @@
 
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -380,6 +380,30 @@
                     		<div class="row" style="background-color: #f7f7f7;padding-top:2%; padding-bottom: 2%">
                     			<div class="col-sm-offset-1 col-sm-4" style="background-color: #f7f7f7;color:#555; text-align: left;">
                     				<p><h4><b>All avialable selling items</b></h4></p>
+                    				
+
+                    				<ul ng-app='app' ng-controller="CtrlChecklist" class = "MyFirstUl" style="list-style-type: none; padding: 0px; text-align: left;">
+                    					<li ng-repeat="(category, category_val) in categories">
+
+                    						<div class = "row">
+                    							<div class="col-sm-1">
+                    								<input type="checkbox" name="SellerCategory" value ="{{category}}">
+                    							</div> 
+                    							<div class="col-sm-10" data-toggle="collapse" data-target= "{{'#' +  category + 'List'}}">
+                    								{{category}}
+                    							</div>
+                    						</div>
+                    						
+                    						<ul  style="list-style-type: none;" class="collapse" id = "{{category + 'List'}}">
+                    							<li ng-repeat="(product, product_val) in products[category]">
+                    								<input type="checkbox" name="{{category}}" value="{{product}}"> {{product}}
+                    							</li>
+                    						</ul>
+                    					
+                    					</li>
+                    				
+                    				</ul>
+                    				<!--
                     				<ul class = "MyFirstUl" style="list-style-type: none; padding: 0px; text-align: left;">
                     					
                     					<li> 
@@ -437,6 +461,7 @@
                     						</ul>
                     					</li>
                     				</ul>
+                    				-->
                     			</div>
                     			<div class="col-sm-2" style="background-color: #f7f7f7;color:#337ab7;">
                     				<div class="btn-group-vertical">
@@ -472,6 +497,39 @@
     </div>
     <!-- /#wrapper -->
 
+    <script type="text/javascript">
+    	var app = angular.module("app", [  ]);
+		app.controller('CtrlChecklist', function($scope) {
+              $scope.categories = {
+                "Electronics":false,
+                "Appliances":false,
+                "Clothings":false
+              }
+			  $scope.products = {
+					"Electronics":{
+						"Camera":false,
+						"Mobile":false
+					},
+					"Appliances":{
+						"Refrigerator":false,
+						"Microwave":false
+					},
+					"Clothings":{
+						"Shirts":false,
+						"Pants":false
+					}
+			 }
+			
+			$scope.categoryToggle = function(category,category_val){
+				console.log(category,category_val);
+			for(item in $scope.products[category])
+				{
+					console.log(item);
+					$scope.products[category][item] = category_val;
+				}
+			}
+		});
+    </script>>
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
 
