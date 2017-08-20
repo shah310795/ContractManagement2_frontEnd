@@ -46,6 +46,7 @@ $(function() {
     }
 });
 
+/*
 var isBusiness = false;
 $(document).ready(function() {
     $('#biz').click(function() {
@@ -96,3 +97,60 @@ $(document).ready(function() {
         }
     });
 });
+*/
+
+var app = angular.module("SignupSwitch", []);
+app.controller("mySignupSwitch", ["$scope", function($scope) {
+    $scope.bizvar = false;
+    $scope.finvar = false;
+    $scope.nopage = true;
+
+    $scope.hid = "hidden"
+    $scope.nhid = ""
+    $scope.curstylebiz = "bizfintrue";
+    $scope.curstylefin = "finbiztrue";
+    $scope.myurl = "";
+
+    $scope.bizClick= function() {
+        $scope.myurl ="./SignupCustomer.html"
+        if ($scope.bizvar == false) {
+            $scope.bizvar = true;
+            $scope.finvar = false;
+            $scope.nopage = false;
+            $scope.curstylebiz = "bizbiztrue";
+            $scope.curstylefin = "finbiztrue";
+        } else if ($scope.bizvar == true){
+            $scope.bizvar = false;
+            $scope.curstylebiz = "bizfintrue";
+            $scope.curstylefin = "finbiztrue";
+            if ($scope.finvar == false) {
+                $scope.nopage = true;
+            }
+        }
+        console.log($scope.bizvar);
+        console.log($scope.finvar);
+        console.log($scope.nopage);
+    }
+
+    $scope.finClick= function() {
+        if ($scope.finvar == false) {
+            $(".collapse").collapse('show');
+            $scope.curstylefin = "finfintrue";
+            $scope.curstylebiz = "bizfintrue";
+            $scope.bizvar = false;
+            $scope.finvar = true;
+            $scope.nopage = false;
+        } else if ($scope.finvar == true){
+            $scope.curstylefin = "finbiztrue";
+            $scope.finvar = false;
+            if ($scope.bizvar == false) {
+                $scope.nopage = true;
+            }
+        }
+        console.log($scope.bizvar);
+        console.log($scope.finvar);
+        console.log($scope.nopage);
+      
+
+    }
+}]);
