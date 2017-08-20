@@ -21,7 +21,7 @@
 		body{
 			background-color:#333;
 			color:white;
-			padding-bottom: 5%
+			padding-bottom: 5%;
 		}
 		body:before{
 			content:"HEY";
@@ -225,8 +225,6 @@
 			height:10px; 
 			margin:0px;	
 		}
-
-
 	</style>
 	
 	
@@ -258,9 +256,9 @@
 				<br><br>
 				
 				<!-- ============================LINKS TO SELECT TYPE OF USER================================ -->
-				<div  class = "row" data-toggle="collapse" data-target="#CollapsibleLoginPAge">
+				<div  class = "row">
 				    <a href="" ng-click="bizClick()" id = "bizAnch">
-						<div class = "col-sm-offset-2 col-sm-2"  id="{{curstylebiz}}">
+						<div class = "col-sm-offset-2 col-sm-2"  id="{{curstylebiz}}" data-toggle= "{{collapse}}" data-target="#CollapsibleLoginPAge">
 							<i class="fa fa-briefcase fa-fw fa-3x businessDiv"></i>
 							<div class = "row">	
 								<div class = "col-sm-12">					
@@ -270,7 +268,7 @@
 						</div>
 					</a>
 					<a href="" ng-click="finClick()" id = "finAnch">
-						<div class = "col-sm-offset-4 col-sm-2" id="{{curstylefin}}">
+						<div class = "col-sm-offset-4 col-sm-2" id="{{curstylefin}}" data-toggle= "{{collapse}}" data-target="#CollapsibleLoginPAge">
 							<i class="fa fa-money fa-fw fa-3x financeDiv"></i>
 							<div class = "row">	
 								<div class = "col-sm-12">					

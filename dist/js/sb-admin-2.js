@@ -110,16 +110,23 @@ app.controller("mySignupSwitch", ["$scope", function($scope) {
     $scope.curstylebiz = "bizfintrue";
     $scope.curstylefin = "finbiztrue";
     $scope.myurl = "";
-
+    $scope.collapse = "";
     $scope.bizClick= function() {
         $scope.myurl ="./SignupCustomer.html"
         if ($scope.bizvar == false) {
+            if ($scope.finvar == true) {
+                $scope.collapse = "";
+            } else {
+                $scope.collapse = "collapse";
+            }
+            
             $scope.bizvar = true;
             $scope.finvar = false;
             $scope.nopage = false;
             $scope.curstylebiz = "bizbiztrue";
             $scope.curstylefin = "finbiztrue";
         } else if ($scope.bizvar == true){
+            $scope.collapse = "collapse";
             $scope.bizvar = false;
             $scope.curstylebiz = "bizfintrue";
             $scope.curstylefin = "finbiztrue";
@@ -134,6 +141,11 @@ app.controller("mySignupSwitch", ["$scope", function($scope) {
 
     $scope.finClick= function() {
         if ($scope.finvar == false) {
+            if ($scope.bizvar == true) {
+                $scope.collapse = "";
+            } else {
+                $scope.collapse = "collapse";
+            }
             $scope.myurl ="./SignupUser.htm"
             $scope.curstylefin = "finfintrue";
             $scope.curstylebiz = "bizfintrue";
@@ -141,6 +153,7 @@ app.controller("mySignupSwitch", ["$scope", function($scope) {
             $scope.finvar = true;
             $scope.nopage = false;
         } else if ($scope.finvar == true){
+            $scope.collapse = "collapse";
             $scope.curstylefin = "finbiztrue";
             $scope.finvar = false;
             if ($scope.bizvar == false) {
