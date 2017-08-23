@@ -296,21 +296,23 @@
 					<div class = "col-sm-6">
 						
 						<p style="text-align:center; font-size:200%;color: #555"> <b> Already a user ?<br>Login Here</b></p>
-							<div class = "row">
+							<div class = "row" ng-controller="LoginController">
 								<div class = "col-sm-offset-1 col-sm-10">
-<!-- ==========================form start =========================== -->
-									<form id = "LoginForm">
+								<p>{{2+2}}</p>
+					<!-- ==========================form start =========================== -->
+									<form id = "LoginForm" method="post">
 										<div class = "row">
 											<div id = "UserNameUnit" class="col-sm-offset-1 col-sm-10">
 												<div id = "UserNameUnitLabel">
 													<p style="opacity:0.6; margin:0px"><b>Login ID</b></p>
 												</div>
 												<div>
-													<input id = "UserNameUnitInput" type="text" name="LoginId" >
+													<input ng-model="UserNameMod" id = "UserNameUnitInput" type="text" name="LoginId" >
 												</div>
 											</div>
 										</div>
 										<br>
+
 										<div class = "row">
 											<div id = "PasswordUnit" class="col-sm-offset-1 col-sm-10">
 													<div id = "PasswordUnitLabel">
@@ -318,14 +320,14 @@
 															<b>Password</b>
 														</p>
 													</div>
-													<input id="PasswordUnitInput" type="password" name="password" />
+													<input ng-model="PasswordMod" id="PasswordUnitInput" type="password" name="password" />
 											</div>
 										</div>
 										
 										<br>
 
 										<div id ="LoginSubmitDiv">
-											<input id="submitLogin" type="submit" value="Login" name="submitLogin"/>
+											<input ng-click="LoginClick()" id="submitLogin" type="submit" value="Login" />
 										</div>
 
 									</form>

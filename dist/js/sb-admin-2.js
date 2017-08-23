@@ -111,7 +111,7 @@ app.controller("mySignupSwitch", ["$scope", function($scope) {
     $scope.curstylefin = "finbiztrue";
     $scope.myurl = "";
     $scope.collapse = "";
-    $scope.bizClick= function() {
+    $scope.bizClick = function() {
         $scope.myurl ="./SignupCustomer.html"
         if ($scope.bizvar == false) {
             if ($scope.finvar == true) {
@@ -166,4 +166,52 @@ app.controller("mySignupSwitch", ["$scope", function($scope) {
       
 
     }
+}]);
+
+
+ 
+app.controller("LoginController", ["$scope", "$http", "$httpParamSerializer", "$location", function($scope, $http, $httpParamSerializer, $location) {
+
+    $scope.UserNameMod = "";
+    $scope.PasswordMod = "";
+    $scope.LoginClick = function () {
+        /*$http({
+            headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'
+            },
+            url: 'http://localhost:8089/MyRestDemo/rest/login/checkCredentials',
+            method: 'POST',
+            transformRequest: $httpParamSerializer,
+            transformResponse: function (x) {
+              return angular.fromJson(angular.fromJson(x));
+            },
+            data: {
+              "username": $scope.UserNameMod,
+              "password": $scope.PasswordMod
+            }
+        }) 
+          .then(function(response) {
+            console.log(response);
+            $scope.res = response.data;
+            console.log($scope.res);
+        });*/
+
+        var data = {
+            username: $scope.UserNameMod,
+            password: $scope.PasswordMod
+        }
+
+        var promise = $http({
+            url: 'http://localhost:8089/MyRestDemo/rest/login/checkCredentials',
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain' },
+            data: {
+            username: $scope.UserNameMod,
+            password: $scope.PasswordMod
+            }
+        })
+        promise.then(function(){
+            $location.url('../index.html')
+        })
+    }
+
 }]);
