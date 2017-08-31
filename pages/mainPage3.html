@@ -330,7 +330,7 @@
                                     </div>
                                 </div>
                                 <div id="container" style="border: 1px solid #cccccc; border-radius: 3px;">
-                                    <div class = "row" ng-repeat="product in products" id="{{product.productName}}" style="margin: 5px;"> 
+                                    <div class = "row" ng-repeat="product in products" id="{{product.id}}" style="margin: 5px;"> 
                                         <div class = "col-sm-1">
                                             <div style="text-align: center;">{{$index +1}}</div>            
                                         </div>
@@ -338,7 +338,7 @@
                                             <div style="text-align: center;">{{product.productName}}</div> 
                                         </div>
                                         <div class = "col-sm-3" style="margin-top: 4px;">
-                                            <div class = "row"  ng-repeat="feature in product.feature">
+                                            <div class = "row"  ng-repeat="feature in product.feature" id="{{feature.featureId}}">
                                                 <div class = "col-sm-7">
                                                     <div style="text-align: center;">{{feature.name}}</div>
                                                 </div>    
@@ -347,7 +347,11 @@
                                                         <button ng-click="deleteFeature(feature.featureId,product.id)" onmouseup="deleteF(this)">Delete</button>
                                                     </div>
                                                 </div>          
-                                            </div>              
+                                            </div>
+                                            <!--<div class="container" id="{{product.id}}" hidden>
+                                            	<input type="text" ng-model="featureName">
+                                            	<button ng-click="addFeature(product_id)">Add</button>
+                                            </div>    -->          
                                         </div>
                                         <div class = "col-sm-2" style="">
                                             <div style="text-align: center;">{{product.price}}</div>            
@@ -358,9 +362,12 @@
                                         <div class = "col-sm-2" style="">
                                             <div style="text-align: center;">{{product.price * product.quantity}}</div>
                                         </div>
+                                        <div class = "col-sm-2" id="inp" style="">
+                                            <div style="text-align: center;" hidden>{{product.id}}</div>
+                                        </div>
                                         <div class = "col-sm-1" style="">
                                             <div style="text-align: center;">
-                                                <button ng-click="addFeature(product.id)" onmousedown="addSkeletonF(this)">Add Feature</button>
+                                                <button ng-click="addFeature(product.id)">Add Feature</button>
                                             </div> 
                                         </div>
                                         <div class = "col-sm-1" style="">
@@ -380,11 +387,8 @@
                                     <div class="container">
                                         <div class="row" id="container" style="margin: 5px;">
                                             <div class="col-sm-2">
-                                                <button class="btn btn-block btn-primary" id="btn-spec" ng-click="addProduct()" onmousedown="addSkeletonP(this)">Add Product</button>
+                                                <button class="btn btn-block btn-primary" id="btn-spec" ng-click="addProduct()"">Add Product</button>
                                             </div>
-                                            <!--<div class="col-sm-2">
-                                                <button class="btn btn-block btn-primary" id="btn-spec" ng-click="">Modify Terms</button>
-                                            </div>-->
                                         </div>
                                     </div>
                                 </table>
@@ -405,11 +409,11 @@
                                         <td id="module_section_td2">
                                             <div id="module_section_div3" style="overflow-y: hidden; padding-top:25px;">{{paymentTerms}}</div>
                                         </td>
-                                        <td id="module_section_td3">
+                                        <!--<td id="module_section_td3">
                                             <div class="col-sm-2">
                                                 <button class="btn btn-block btn-primary" id="btn-spec" ng-click="editPaymentTerms()">Edit</button>
                                             </div>
-                                        </td>
+                                        </td>-->
                                     </tr>
                                     <tr id="module_section_tr">
                                         <td id="module_section_td1">
@@ -419,11 +423,11 @@
                                         <td id="module_section_td2">
                                             <div id="module_section_div3" style="overflow-y: hidden; padding-top:25px;">{{deliveryTerms}}</div>
                                         </td>
-                                        <td id="module_section_td3">
+                                        <!--<td id="module_section_td3">
                                             <div class="col-sm-2">
                                                 <button class="btn btn-block btn-primary" id="btn-spec" ng-click="editDeliveryTerms()">Edit</button>
                                             </div>
-                                        </td>
+                                        </td>-->
                                     </tr>
                                     <tr id="module_section_tr">
                                         <td id="module_section_td1">
@@ -433,11 +437,11 @@
                                         <td id="module_section_td2">
                                             <div id="module_section_div3" style="overflow-y: hidden; padding-top:25px;">{{totalPrice}}</div>
                                         </td>
-                                        <td id="module_section_td3">
+                                        <!--<td id="module_section_td3">
                                             <div class="col-sm-2">
                                                 <button class="btn btn-block btn-primary" id="btn-spec" ng-click="autoAdjustPrice()">Auto Adjust</button>
                                             </div>
-                                        </td>
+                                        </td>-->
                                     </tr>
                                     <tr id="module_section_tr">
                                         <td id="module_section_td1">
@@ -463,7 +467,7 @@
                                         </td>
                                         <td>
                                             <div id="container" ng-controller="ClickController" style="margin: 30px 5px;">
-                                                <button ng-click="" class="btn btn-success" style="padding:15px; margin:12px; float:right;">
+                                                <button ng-click="awardContract()" class="btn btn-success" style="padding:15px; margin:12px; float:right;">
                                                     <a href="#">Save Contract</a>
                                                 </button>
                                             </div>
@@ -545,7 +549,7 @@
                     feature_length[i] = data.product[i].feature.length;
                 }
                 var promise = $http({
-                    url: 'http://192.168.4.127:8080/ContractManagement2/webapi/contracts/',
+                    url: 'http://192.168.4.137:8080/ContractManagement2/webapi/contracts/',
                     method: 'POST',
                     headers: { 'Content-Type':'application/json;charset=utf-8' },
                     data: { 
@@ -611,7 +615,7 @@
                 $scope.totalPrice = tempPrice;
             }
 
-            $http.get("http://192.168.4.122:8080/ContractManagement2/webapi/contracts/draft/5").then(function(response){
+            $http.get("http://192.168.4.137:8080/ContractManagement2/webapi/contracts/draft/5").then(function(response){
                 data = response.data;
                 JSON_length = data.product.length;
                 for(var i=0; i<JSON_length; i++) {
@@ -678,6 +682,11 @@
         function deleteP(btndel) {   
             $(btndel).parent().parent().parent().remove();
         }
+
+        /*function addSkeletonF(division_id) {
+        	console.log(division_id);
+        	$('division_id').show();
+        }*/
     </script>
 </body>
 </html>

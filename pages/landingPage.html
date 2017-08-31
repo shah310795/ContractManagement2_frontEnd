@@ -289,22 +289,18 @@
                                         <div style="text-align: center;">{{$index +1}}</div>            
                                     </div>
                                     <div class = "col-sm-3" style="">
-                                        <div style="text-align: center;">DESC</div> 
+                                        <div style="text-align: center;">{{contract.contract}}</div> 
                                     </div>
                                     <div class = "col-sm-3" style="">
-                                        <div class = "row"  ng-repeat="feature in product.feature" id="{{feature.name}}">
-                                            <div class = "col-sm-12">
-                                                <div style="text-align: center;">{{feature.name}}</div>
-                                            </div>             
-                                        </div>              
+                                        <div style="text-align: center;">{{contract.sellerId}}</div> 
                                     </div>
                                     <div class = "col-sm-3" style="">
-                                        <div style="text-align: center;">PENDING</div>            
+                                        <div style="text-align: center;">{{contract.status}}</div>            
                                     </div>
                                     <div class = "col-sm-2" style="">
                                         <div style="text-align: center;">
                                             <div style="text-align: center;">
-                                                <button ng-click="openContract(contract.status)">View Contract</button>
+                                                <a href="../pages/mainPage.html"><button>View Contract</button></a>
                                             </div>
                                         </div>
                                     </div>
@@ -337,6 +333,7 @@
         var deliveryTermsData = {};
         var JSON_length;
         var feature_length = {};
+        var contracts_temp = {};
 
         app.controller('ViewController', function($scope, $http, $location){
            $scope.openContract = function(status) {
@@ -351,21 +348,16 @@
                 }
             }
 
-            $http.get("http://192.168.4.122:8080/ContractManagement2/webapi/contracts/draft/5").then(function(response){
-                data = response.data;
-                JSON_length = data.product.length;
-                for(var i=0; i<JSON_length; i++) {
+            $http.get("http://192.168.4.137:8080/ContractManagement2/webapi/contracts/1/all").then(function(response){
+                contracts_temp = response.data;
+                $scope.contracts = contracts_temp;
+                console.log(contracts[0]);
+                // console.log(contracts[0].sellerId);
+                /*JSON_length = contracts.length;
+                console.log(JSON_length);*/
+                /*for(var i=0; i<JSON_length; i++) {
                     feature_length[i] = data.product[i].feature.length;
-                }
-                $scope.myProposal = data.contract;
-                $scope.myDescription = "DESC";
-                $scope.mySellerDetails = data.sellerId;
-                $scope.myAddress = "ABC";
-                $scope.products = data.product;
-                $scope.paymentTerms = data.paymentTermId;
-                $scope.deliveryTerms = data.deliveryTermId;
-                $scope.totalPrice = 10000000;
-                $scope.dateOfInvoice = data.dateofInvoice;
+                }*/
             })
             
             /*$scope.sendFormData = function(){

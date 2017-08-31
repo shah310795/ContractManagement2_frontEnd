@@ -422,7 +422,7 @@
         var data = {};
 
  		app.controller('ViewController', function($scope, $http){
-            $http.get("http://192.168.4.122:8080/ContractManagement2/webapi/contracts/draft/5").then(function(response){
+            $http.get("http://192.168.4.137:8080/ContractManagement2/webapi/contracts/draft/5").then(function(response){
                 data = response.data;
                 var temp = data.product;
                 $scope.myProposal = data.contract;
